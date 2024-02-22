@@ -11,8 +11,8 @@ export default defineConfig({
         short_name: "Reflectify",
         description: "Personal journaling app for daily reflection",
         start_url: '/',
-        theme_color: "#6CB2EB",
-        background_color: "#FFFFFF",
+        theme_color: "#BB9628",
+        background_color: "#F5F5F5",
         display: 'standalone',
         icons: [
           {

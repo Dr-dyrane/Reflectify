@@ -55,7 +55,7 @@ const Navbar = () => {
 
 	return (
 		<nav
-			className="bg-white dark:bg-slate-900 sticky top-0 z-50"
+			className="bg-warm dark:bg-eerie sticky top-0 z-50"
 			style={{ opacity: navbarOpacity }}
 		>
 			<div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">

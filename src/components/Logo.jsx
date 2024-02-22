@@ -6,10 +6,10 @@ const Logo = ({ disabled }) => {
     <>
       <img
         src="/logo.png"
-        className="h-8 rounded-full bg-none p-[1px]"
+        className="h-8 bg-none p-[1px]"
         alt="Reflectify Logo"
       />
-      <span className="self-center text-2xl font-semibold whitespace-nowrap dark:text-slate-100">
+      <span className="self-center text-2xl font-semibold whitespace-nowrap dark:text-amber-100">
         Reflectify™
       </span>
     </>

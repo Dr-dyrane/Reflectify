@@ -1,9 +1,9 @@
 // navbarData.js
 const menuItems = [
     { to: "/", label: "Home" },
-    { to: "/menu", label: "Menu" },
-    { to: "/services", label: "Services" },
-    { to: "/contact", label: "Contact" },
+    { to: "/entries", label: "Entries" },
+    { to: "/statistics", label: "Statistics" },
+    { to: "/journal", label: "Journal" },
   ];
   
   const userDropdownItems = [

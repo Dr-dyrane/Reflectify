@@ -35,12 +35,12 @@ const UserSection = ({
 					<div
 						className={`z-50 ${
 							isUserOpen ? "block" : "hidden"
-						} absolute my-4 right-2 lg:right-[270px] text-base list-none bg-white divide-y divide-slate-100 rounded-lg shadow dark:bg-slate-700 dark:divide-slate-600`}
+						} absolute my-4 right-2 lg:right-[270px] text-base list-none bg-warm divide-y divide-slate-100 rounded-lg shadow dark:bg-slate-700 dark:divide-slate-600`}
 						id="user-dropdown"
 						ref={userDropdownRef}
 					>
 						<div className="px-4 py-3">
-							<span className="block text-sm text-slate-900 dark:text-white">
+							<span className="block text-sm text-slate-900 dark:text-warm">
 								Bonnie Green
 							</span>
 							<span className="block text-sm text-slate-500 truncate dark:text-slate-400">
@@ -52,7 +52,7 @@ const UserSection = ({
 								<li key={item.to}>
 									<Link
 										to={item.to}
-										className="block px-4 py-2 text-sm text-slate-700 hover:bg-slate-100 dark:hover:bg-slate-600 dark:text-slate-200 dark:hover:text-white"
+										className="block px-4 py-2 text-sm text-slate-700 hover:bg-slate-100 dark:hover:bg-slate-600 dark:text-slate-200 dark:hover:text-warm"
 									>
 										{item.label}
 									</Link>
@@ -65,7 +65,7 @@ const UserSection = ({
 				<Link to="/login">
 					<button
 						type="button"
-						className="text-white bg-indigo-700 hover:bg-indigo-800 focus:ring-4 focus:outline-none focus:ring-indigo-300 font-medium rounded-lg text-sm px-4 py-2 text-center dark:bg-indigo-600 dark:hover:bg-indigo-700 dark:focus:ring-indigo-800"
+						className="text-warm bg-indigo-700 hover:bg-indigo-800 focus:ring-4 focus:outline-none focus:ring-indigo-300 font-medium rounded-lg text-sm px-4 py-2 text-center dark:bg-indigo-600 dark:hover:bg-indigo-700 dark:focus:ring-indigo-800"
 					>
 						Get started
 					</button>
