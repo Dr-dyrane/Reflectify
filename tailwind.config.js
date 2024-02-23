@@ -9,7 +9,7 @@ export default {
       colors: {
         'golden': '#BB9628',
         'warm': '#F5F5F5',
-        'eerie': '#111827',
+        'eerie': '#000',
       },
     },
   },
