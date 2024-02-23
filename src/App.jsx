@@ -8,7 +8,7 @@ import Footer from "./components/Footer";
 const App = () => {
 	return (
 		<Router>
-			<div className="bg-slate-200 dark:bg-eerie min-h-screen flex flex-col">
+			<div className="bg-warm dark:bg-eerie min-h-screen flex flex-col">
 				<Navbar />
 				<div className="flex-1 justify-center items-center text-indigo-700 font-bold text-center">
 					<AppRoutes />
