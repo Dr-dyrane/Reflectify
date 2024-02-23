@@ -9,7 +9,7 @@ const Logo = ({ disabled }) => {
         className="h-8 bg-none p-[1px]"
         alt="Reflectify Logo"
       />
-      <span className="self-center text-2xl text-amber-900 font-semibold whitespace-nowrap dark:text-amber-100">
+      <span className="self-center text-2xl text-eerie font-semibold whitespace-nowrap dark:text-amber-100">
         Reflectify™
       </span>
     </>
