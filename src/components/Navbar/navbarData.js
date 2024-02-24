@@ -10,7 +10,7 @@ const menuItems = [
     { to: "/dashboard", label: "Dashboard" },
     { to: "/settings", label: "Settings" },
     { to: "/earnings", label: "Earnings" },
-    { to: "/sign-out", label: "Sign out" },
+    { to: "/logout", label: "Sign out" },
   ];
   
   export { menuItems, userDropdownItems };

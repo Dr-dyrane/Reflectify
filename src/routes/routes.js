@@ -1,8 +1,9 @@
 // src/routes/routes.js
 
-import Landing from '../pages/Landing';
-import Login from '../pages/Login';
-import Register from '../pages/Register';
+import Landing from "../pages/Landing";
+import Login from "../pages/Login";
+import Logout from "../pages/Logout";
+import Register from "../pages/Register";
 import Home from "../pages/Home";
 
 const RouteConfig = () => {
@@ -15,6 +16,11 @@ const RouteConfig = () => {
 		{
 			path: "/login",
 			element: Login,
+			props: {},
+		},
+		{
+			path: "/logout",
+			element: Logout,
 			props: {},
 		},
 		{

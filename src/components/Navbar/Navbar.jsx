@@ -5,6 +5,7 @@ import { menuItems, userDropdownItems } from "./navbarData";
 import UserSection from "./UserSection";
 import MenuButton from "./MenuButton";
 import Logo from "../Logo";
+import { useAuth } from "../../auth/AuthContext";
 
 const Navbar = () => {
 	const [isMenuOpen, setMenuOpen] = useState(false);
@@ -14,6 +15,16 @@ const Navbar = () => {
 
 	const menuRef = useRef(null);
 	const userDropdownRef = useRef(null);
+
+	const { user, logout } = useAuth();
+
+	useEffect(() => {
+		if (user) {
+			setLoggedIn(true)
+		} else {
+			setLoggedIn(false); // Reset isLoggedIn state when user logs out
+		}
+	}, [user]);
 
 	const toggleMenu = (event) => {
 		event.stopPropagation(); // Stop the event from propagating
