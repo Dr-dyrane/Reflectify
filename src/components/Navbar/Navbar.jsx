@@ -66,7 +66,7 @@ const Navbar = () => {
 
 	return (
 		<nav
-			className="bg-warm dark:bg-eerie sticky top-0 z-50 shadow dark:shadow-golden/25"
+			className="bg-warm dark:bg-eerie sticky top-0 z-50 border-b-[1px] border-slate-500"
 			style={{ opacity: navbarOpacity }}
 		>
 			<div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">

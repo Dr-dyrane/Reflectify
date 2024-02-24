@@ -40,13 +40,13 @@ const Login = () => {
 	};
 
 	return (
-		<div className="flex flex-col justify-center items-center min-h-screen bg-gray-100 dark:bg-gray-900">
-			<h1 className="text-3xl font-bold mb-6 text-gray-800 dark:text-white">
+		<div className="flex flex-col justify-center items-center min-h-screen bg-warm dark:bg-eerie">
+			<h1 className="text-3xl font-bold mb-6 text-slate-800 dark:text-white">
 				Login to Reflectify
 			</h1>
-			<form onSubmit={handleLogin} className="space-y-4">
+			<form onSubmit={handleLogin} className="space-y-6">
 				<div className="flex flex-col">
-					<label htmlFor="email" className="text-gray-700 dark:text-white">
+					<label htmlFor="email" className="text-slate-700 dark:text-white mb-2 text-start">
 						Email
 					</label>
 					<input
@@ -55,12 +55,12 @@ const Login = () => {
 						name="email"
 						value={formData.email}
 						onChange={handleChange}
-						className="border border-gray-300 dark:border-gray-700 rounded-md p-2"
+						className="border border-slate-300 dark:border-slate-700 rounded-3xl p-4"
 						required
 					/>
 				</div>
 				<div className="flex flex-col">
-					<label htmlFor="password" className="text-gray-700 dark:text-white">
+					<label htmlFor="password" className="text-slate-700 dark:text-white mb-2 text-start">
 						Password
 					</label>
 					<input
@@ -69,18 +69,18 @@ const Login = () => {
 						name="password"
 						value={formData.password}
 						onChange={handleChange}
-						className="border border-gray-300 dark:border-gray-700 rounded-md p-2"
+						className="border border-slate-300 dark:border-slate-700 rounded-3xl p-4"
 						required
 					/>
 				</div>
 				<button
 					type="submit"
-					className="bg-blue-500 hover:bg-blue-600 text-white py-2 px-4 rounded-md transition duration-300 ease-in-out"
+					className="bg-blue-500 w-full hover:bg-blue-600 text-white text-md p-[21.5px] rounded-[32px] transition duration-300 ease-in-out"
 				>
 					Login
 				</button>
 				{error && <p className="text-red-500">{error}</p>}
-				<p className="text-gray-600 dark:text-gray-400">
+				<p className="text-slate-600 dark:text-slate-400">
 					Don't have an account?{" "}
 					<Link to="/register" className="text-blue-500">
 						Register here

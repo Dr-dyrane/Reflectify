@@ -40,13 +40,13 @@ const Register = () => {
 	};
 
 	return (
-		<div className="flex flex-col justify-center items-center min-h-screen bg-gray-100 dark:bg-gray-900">
+		<div className="flex flex-col justify-center items-center min-h-screen bg-warm dark:bg-eerie">
 			<h1 className="text-3xl font-bold mb-6 text-gray-800 dark:text-white">
 				Register for Reflectify
 			</h1>
 			<form onSubmit={handleRegister} className="space-y-4">
 				<div className="flex flex-col">
-					<label htmlFor="email" className="text-gray-700 dark:text-white">
+					<label htmlFor="email" className="text-gray-700 dark:text-white mb-2 text-start">
 						Email
 					</label>
 					<input
@@ -55,12 +55,12 @@ const Register = () => {
 						name="email"
 						value={formData.email}
 						onChange={handleChange}
-						className="border border-gray-300 dark:border-gray-700 rounded-md p-2"
+						className="border border-gray-300 dark:border-gray-700 rounded-3xl p-4"
 						required
 					/>
 				</div>
 				<div className="flex flex-col">
-					<label htmlFor="password" className="text-gray-700 dark:text-white">
+					<label htmlFor="password" className="text-gray-700 dark:text-white mb-2 text-start">
 						Password
 					</label>
 					<input
@@ -69,13 +69,13 @@ const Register = () => {
 						name="password"
 						value={formData.password}
 						onChange={handleChange}
-						className="border border-gray-300 dark:border-gray-700 rounded-md p-2"
+						className="border border-gray-300 dark:border-gray-700 rounded-3xl p-4"
 						required
 					/>
 				</div>
 				<button
 					type="submit"
-					className="bg-gray-700 hover:bg-gray-800 text-white py-2 px-4 rounded-md transition duration-300 ease-in-out"
+					className="bg-gray-700 hover:bg-gray-800 text-white text-md p-[21.5px] rounded-[32px] w-full transition duration-300 ease-in-out"
 				>
 					Register
 				</button>

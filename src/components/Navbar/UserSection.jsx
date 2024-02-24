@@ -35,7 +35,7 @@ const UserSection = ({
 					<div
 						className={`z-50 ${
 							isUserOpen ? "block" : "hidden"
-						} absolute my-4 right-2 lg:right-[270px] text-base list-none bg-warm divide-y divide-slate-100 rounded-lg shadow dark:bg-eerie/85 dark:shadow-golden/40 dark:divide-slate-600`}
+						} border-[1px] border-slate-500 absolute my-4 right-2 lg:right-[270px] text-base list-none bg-warm divide-y divide-slate-100 rounded-lg  dark:bg-eerie/85 dark:divide-slate-600`}
 						id="user-dropdown"
 						ref={userDropdownRef}
 					>
@@ -65,7 +65,7 @@ const UserSection = ({
 				<Link to="/login">
 					<button
 						type="button"
-						className="text-warm bg-golden hover:bg-golden/85 focus:ring-4 focus:outline-none focus:ring-amber-300 font-medium rounded-lg text-sm px-4 py-2 text-center dark:bg-golden dark:hover:bg-golden/85 dark:focus:ring-amber-300"
+						className="text-warm bg-golden hover:bg-golden/85 focus:ring-4 focus:outline-none focus:ring-amber-300 font-medium rounded-[32px] text-sm px-4 py-2 text-center dark:bg-golden dark:hover:bg-golden/85 dark:focus:ring-amber-300"
 					>
 						Get started
 					</button>
