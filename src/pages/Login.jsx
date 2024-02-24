@@ -40,53 +40,65 @@ const Login = () => {
 	};
 
 	return (
-		<div className="flex flex-col justify-center items-center min-h-screen bg-warm dark:bg-eerie">
-			<h1 className="text-3xl font-bold mb-6 text-slate-800 dark:text-white">
-				Login to Reflectify
-			</h1>
-			<form onSubmit={handleLogin} className="space-y-6">
-				<div className="flex flex-col">
-					<label htmlFor="email" className="text-slate-700 dark:text-white mb-2 text-start">
-						Email
-					</label>
-					<input
-						type="email"
-						id="email"
-						name="email"
-						value={formData.email}
-						onChange={handleChange}
-						className="border border-slate-300 dark:border-slate-700 rounded-3xl p-4"
-						required
-					/>
-				</div>
-				<div className="flex flex-col">
-					<label htmlFor="password" className="text-slate-700 dark:text-white mb-2 text-start">
-						Password
-					</label>
-					<input
-						type="password"
-						id="password"
-						name="password"
-						value={formData.password}
-						onChange={handleChange}
-						className="border border-slate-300 dark:border-slate-700 rounded-3xl p-4"
-						required
-					/>
-				</div>
-				<button
-					type="submit"
-					className="bg-blue-500 w-full hover:bg-blue-600 text-white text-md p-[21.5px] rounded-[32px] transition duration-300 ease-in-out"
-				>
-					Login
-				</button>
-				{error && <p className="text-red-500">{error}</p>}
-				<p className="text-slate-600 dark:text-slate-400">
-					Don't have an account?{" "}
-					<Link to="/register" className="text-blue-500">
-						Register here
-					</Link>
-				</p>
-			</form>
+		<div className="flex flex-col md:flex-row justify-center items-center min-h-screen bg-warm dark:bg-eerie">
+			<div className="flex w-full items-center justify-center">
+				<img
+					src="/logo.png"
+					alt="reflectify logo"
+					className="p-8 bg-transparent"
+				/>
+			</div>
+			<section className="sm:w-full sm:p-20 md:p-24 lg:p-28">
+				<h1 className="text-3xl font-bold mb-6 text-slate-800 dark:text-white">
+					Login to Reflectify
+				</h1>
+				<form onSubmit={handleLogin} className="space-y-6 lg:space-y-10">
+					<div className="flex flex-col">
+						<label
+							htmlFor="email"
+							className="text-slate-700 dark:text-white mb-2 text-start"
+						>
+							Email
+						</label>
+						<input
+							type="email"
+							id="email"
+							name="email"
+							value={formData.email}
+							onChange={handleChange}
+							className="border border-slate-300 dark:border-slate-700 rounded-3xl p-4"
+							required
+						/>
+					</div>
+					<div className="flex flex-col">
+						<label
+							htmlFor="password"
+							className="text-slate-700 dark:text-white mb-2 text-start"
+						>
+							Password
+						</label>
+						<input
+							type="password"
+							id="password"
+							name="password"
+							value={formData.password}
+							onChange={handleChange}
+							className="border border-slate-300 dark:border-slate-700 rounded-3xl p-4"
+							required
+						/>
+					</div>
+					<button type="submit" className="login-btn w-full">
+						Login
+					</button>
+					{error && <p className="text-red-500">{error}</p>}
+					<p className="text-slate-600 dark:text-slate-400">
+						Don't have an account?{" "}
+						<Link to="/register" className="text-blue-500">
+							Register here
+						</Link>
+					</p>
+				</form>
+			</section>
 		</div>
 	);
 };
