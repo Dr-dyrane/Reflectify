@@ -55,7 +55,7 @@ const Navbar = () => {
 
 	return (
 		<nav
-			className="bg-warm dark:bg-eerie sticky top-0 z-50"
+			className="bg-warm dark:bg-eerie sticky top-0 z-50 shadow dark:shadow-golden/25"
 			style={{ opacity: navbarOpacity }}
 		>
 			<div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
@@ -72,12 +72,12 @@ const Navbar = () => {
 				</div>
 				<div
 					className={`items-center justify-between w-full md:flex md:w-auto md:order-1 ${
-						isMenuOpen ? "block absolute right-0 top-[71px] p-4 bg-white dark:bg-slate-900 rounded-b-xl opacity-95" : "hidden"
+						isMenuOpen ? "block absolute right-0 top-[71px] p-4 bg-white dark:bg-eerie rounded-b-xl opacity-95" : "hidden"
 					}`}
 					id="navbar-cta"
 					ref={menuRef}
 				>
-					<ul className="flex flex-col font-medium p-4 md:p-0 mt-4 border border-slate-100 rounded-lg bg-slate-50 md:space-x-8 rtl:space-x-reverse md:flex-row md:mt-0 md:border-0 md:bg-white dark:bg-slate-800 md:dark:bg-slate-900 dark:border-slate-700">
+					<ul className="flex flex-col font-medium p-4 md:p-0 mt-4 border border-slate-100 rounded-lg bg-slate-50 md:space-x-8 rtl:space-x-reverse md:flex-row md:mt-0 md:border-0 md:bg-warm dark:bg-eerie/85 md:dark:bg-eerie/85 dark:border-golden shadow md:shadow-none">
 						{menuItems.map((item) => (
 							<Menu key={item.to} to={item.to} label={item.label} />
 						))}

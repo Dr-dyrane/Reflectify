@@ -7,7 +7,7 @@ const MenuButton = ({ isMenuOpen, toggleMenu }) => {
 		<button
 			data-collapse-toggle="navbar-cta"
 			type="button"
-			className="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-golden rounded-lg md:hidden hover:bg-amber-100 focus:outline-none focus:ring-2 focus:ring-amber-200 dark:text-golden dark:hover:bg-golden/25 dark:focus:ring-golden-85"
+			className="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-golden rounded-lg md:hidden hover:bg-amber-200 focus:outline-none focus:ring-2 focus:ring-amber-200 dark:text-golden dark:hover:bg-golden/50 dark:focus:ring-golden-85"
 			aria-controls="navbar-cta"
 			aria-expanded="false"
 			onClick={toggleMenu}

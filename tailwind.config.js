@@ -11,6 +11,9 @@ export default {
         'warm': '#F5F5F5',
         'eerie': '#000',
       },
+      boxShadow: {
+        'top': '0 -2px 2px -1px rgba(0, 0, 0, 0.1)',
+      },
     },
   },
   plugins: [],

@@ -16,7 +16,7 @@ const UserSection = ({
 			{isLoggedIn ? (
 				<>
 					<button
-						className="flex text-sm bg-slate-800 rounded-full md:me-0 focus:ring-4 focus:ring-slate-300 dark:focus:ring-slate-600"
+						className="flex text-sm bg-golden rounded-full md:me-0 focus:ring-4 focus:ring-golden dark:focus:ring-golden"
 						type="button"
 						id="user-menu-button"
 						aria-expanded={isUserOpen}
@@ -35,7 +35,7 @@ const UserSection = ({
 					<div
 						className={`z-50 ${
 							isUserOpen ? "block" : "hidden"
-						} absolute my-4 right-2 lg:right-[270px] text-base list-none bg-warm divide-y divide-slate-100 rounded-lg shadow dark:bg-slate-700 dark:divide-slate-600`}
+						} absolute my-4 right-2 lg:right-[270px] text-base list-none bg-warm divide-y divide-slate-100 rounded-lg shadow dark:bg-eerie/85 dark:shadow-golden/40 dark:divide-slate-600`}
 						id="user-dropdown"
 						ref={userDropdownRef}
 					>
@@ -52,7 +52,7 @@ const UserSection = ({
 								<li key={item.to}>
 									<Link
 										to={item.to}
-										className="block px-4 py-2 text-sm text-slate-700 hover:bg-slate-100 dark:hover:bg-slate-600 dark:text-slate-200 dark:hover:text-warm"
+										className="block px-4 py-2 text-sm text-slate-700 hover:bg-amber-100 dark:hover:bg-golden dark:text-slate-200 dark:hover:text-warm"
 									>
 										{item.label}
 									</Link>
