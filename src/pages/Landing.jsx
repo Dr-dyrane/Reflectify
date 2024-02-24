@@ -22,8 +22,8 @@ const Landing = () => {
 
 	return (
 		<div className="flex flex-col justify-center items-center min-h-screen bg-warm dark:bg-eerie space-y-20">
-			{/* Header Section */}
-			<header className="">
+			{/* Hero Section */}
+			<section className="">
 				<img
 					src="/logo.png"
 					alt="reflectify logo"
@@ -35,7 +35,7 @@ const Landing = () => {
 				<p className="text-lg text-slate-600 dark:text-slate-400">
 					Your personal journaling application
 				</p>
-			</header>
+			</section>
 
 			{/* CTA Section */}
 			<section>
