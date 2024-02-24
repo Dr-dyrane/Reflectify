@@ -1,19 +1,36 @@
-// routes/routes.js
-import Home from '../pages/Home';
+// src/routes/routes.js
+
+import Landing from '../pages/Landing';
+import Login from '../pages/Login';
+import Register from '../pages/Register';
+import Home from "../pages/Home";
 
 const RouteConfig = () => {
-  // initiate hooks and pass as props
-  const routes = [
-    {
-      path: '/',
-      element: Home,
-      props: {
-        // Add props if available
-      },
-    },
-  ];
+	const routes = [
+		{
+			path: "/",
+			element: Landing,
+			props: {},
+		},
+		{
+			path: "/login",
+			element: Login,
+			props: {},
+		},
+		{
+			path: "/register",
+			element: Register,
+			props: {},
+		},
+		{
+			path: "/home",
+			element: Home,
+			props: {},
+		},
+		// Add more routes as needed
+	];
 
-  return routes;
+	return routes;
 };
 
 export default RouteConfig;

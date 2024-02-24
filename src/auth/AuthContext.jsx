@@ -1,24 +1,46 @@
-// src/auth/AuthContext.js
-import React, { createContext, useContext, useState } from 'react';
+import React, { createContext, useContext, useState, useEffect } from 'react';
+import { registerUser, loginUser } from '../api/userApi';
+
 
 const AuthContext = createContext({});
-
 
 const AuthProvider = ({ children }) => {
   const [user, setUser] = useState(null); // Initial user state
 
-  const login = (userData) => {
-    // Implement login logic here
-    setUser(userData);
+  useEffect(() => {
+    // Check local storage for user data upon app initialization
+    const storedUser = localStorage.getItem('user');
+    if (storedUser) {
+      setUser(JSON.parse(storedUser));
+    }
+  }, []);
+
+  // Function to handle user login
+  const login = (email, password) => {
+    const userData = loginUser(email, password);
+    if (userData) {
+      setUser(userData);
+      localStorage.setItem('user', JSON.stringify(userData));
+    } else {
+      throw new Error('Invalid email or password');
+    }
   };
 
+  // Function to handle user registration
+  const register = (userData) => {
+    registerUser(userData);
+    setUser(userData);
+    localStorage.setItem('user', JSON.stringify(userData));
+  };
+
+  // Function to handle user logout
   const logout = () => {
-    // Implement logout logic here
     setUser(null);
+    localStorage.removeItem('user');
   };
 
   return (
-    <AuthContext.Provider value={{ user, login, logout }}>
+    <AuthContext.Provider value={{ user, login, register, logout }}>
       {children}
     </AuthContext.Provider>
   );

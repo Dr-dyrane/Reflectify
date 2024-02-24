@@ -1,3 +1,4 @@
+// src/pages/Home
 import React from 'react'
 
 function Home() {

@@ -1,4 +1,4 @@
-// routes/appRoutes.jsx
+// src/routes/appRoutes.jsx
 import React from "react";
 import { Route, Routes } from "react-router-dom";
 import RouteConfig from "./routes"; // Renamed to avoid naming conflicts

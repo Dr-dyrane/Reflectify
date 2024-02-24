@@ -1,6 +1,6 @@
 // navbarData.js
 const menuItems = [
-    { to: "/", label: "Home" },
+    { to: "/home", label: "Home" },
     { to: "/entries", label: "Entries" },
     { to: "/statistics", label: "Statistics" },
     { to: "/journal", label: "Journal" },
