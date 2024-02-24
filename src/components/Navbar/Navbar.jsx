@@ -8,7 +8,7 @@ import Logo from "../Logo";
 
 const Navbar = () => {
 	const [isMenuOpen, setMenuOpen] = useState(false);
-	const [isLoggedIn, setLoggedIn] = useState(true);
+	const [isLoggedIn, setLoggedIn] = useState(false);
 	const [isUserOpen, setUserOpen] = useState(false);
 	const [navbarOpacity, setNavbarOpacity] = useState(1);
 

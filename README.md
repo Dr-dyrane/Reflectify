@@ -8,7 +8,7 @@ Reflectify is a personal journaling application designed to help individuals doc
 - [Features](#features)
 - [Getting Started](#getting-started)
   - [Installation](#installation)
-  - [Usage](#usage)
+  - [Usage](#usage)t
 - [Technologies Used](#technologies-used)
 - [Contributing](#contributing)
 - [Authors](#authors)
