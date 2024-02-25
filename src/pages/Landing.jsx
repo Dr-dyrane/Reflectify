@@ -59,7 +59,6 @@ const Landing = () => {
 		if (user) {
 			navigate("/home");
 		}
-		
 	}, [user, navigate]);
 
 	if (user) {
@@ -107,7 +106,7 @@ const Landing = () => {
 			<section
 				ref={featureRef}
 				id="Features"
-				className="py-20 bg-white dark:bg-gray-900 min-h-screen md:h-auto"
+				className="min-h-screen md:h-auto"
 			>
 				<div className="container mx-auto px-4">
 					<h2 className="text-2xl font-bold mb-6 text-center">Features</h2>
@@ -123,7 +122,7 @@ const Landing = () => {
 			<section
 				ref={usageRef}
 				id="Usage"
-				className="py-20 bg-white dark:bg-gray-900 min-h-screen md:h-auto"
+				className="bg-white dark:bg-gray-900 min-h-screen md:h-auto"
 			>
 				{/* Usage content */}
 				<h1>usage</h1>
@@ -133,7 +132,7 @@ const Landing = () => {
 			<section
 				ref={testimonialRef}
 				id="Testimonials"
-				className="py-20 bg-white dark:bg-gray-900 min-h-screen md:h-auto"
+				className="bg-white dark:bg-gray-900 min-h-screen md:h-auto"
 			>
 				{/* Testimonials content */}
 				<h1>testimononial</h1>
@@ -143,7 +142,7 @@ const Landing = () => {
 			<section
 				ref={contactRef}
 				id="Contact"
-				className="py-20 bg-white dark:bg-gray-900 min-h-screen md:h-auto"
+				className=" bg-white dark:bg-gray-900 min-h-screen md:h-auto"
 			>
 				{/* Contact content */}
 				<h1>contact</h1>
@@ -152,7 +151,7 @@ const Landing = () => {
 			{/* Animated caret down */}
 			{currentSection < sections.length - 1 && (
 				<div
-					className="fixed bottom-6 right-6 cursor-pointer text-blue-500 dark:text-yellow-500 flex items-center space-x-2"
+					className="fixed bottom-6 right-6 cursor-pointer text-blue-500 dark:text-yellow-500 flex items-center space-x-2 animate-bounce"
 					onClick={handleScrollToSection}
 				>
 					<FaChevronDown className="text-2xl" />
@@ -162,7 +161,7 @@ const Landing = () => {
 			{/* Scroll to top button */}
 			{currentSection !== 0 && (
 				<div
-					className="fixed bottom-6 left-6 cursor-pointer text-blue-500 dark:text-yellow-500"
+					className="fixed bottom-6 left-6 cursor-pointer text-blue-500 dark:text-yellow-500 animate-bounce"
 					onClick={scrollToTop}
 				>
 					<FaChevronUp className="text-2xl" />

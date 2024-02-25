@@ -10,6 +10,8 @@ export default {
         'golden': '#BB9628',
         'warm': '#F5F5F5',
         'eerie': '#020617',
+        'metal': '#13192E',
+        'white-coco': '#ECE6D1',
       },
       boxShadow: {
         'top': '0 -2px 2px -1px rgba(0, 0, 0, 0.1)',
