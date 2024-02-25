@@ -3,6 +3,7 @@
 import React, { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { useAuth } from "../auth/AuthContext";
+import { PiCaretLeftBold } from "react-icons/pi";
 
 const Register = () => {
 	const [formData, setFormData] = useState({ email: "", password: "" });
@@ -16,6 +17,10 @@ const Register = () => {
 			navigate("/home");
 		}
 	}, [user, navigate]);
+
+	const goBack = () => {
+		navigate(-1);
+	};
 
 	if (user) {
 		return null;
@@ -40,7 +45,13 @@ const Register = () => {
 	};
 
 	return (
-		<div className="flex flex-col md:flex-row justify-center items-center min-h-screen bg-warm dark:bg-eerie">
+		<div className="flex flex-col md:flex-row justify-center items-center min-h-screen bg-warm dark:bg-eerie relative">
+			<button
+				onClick={goBack}
+				className="absolute top-8 right-8 text-2xl text-golden hover:opacity-75"
+			>
+				<PiCaretLeftBold />
+			</button>
 			<div className="flex w-full items-center justify-center">
 				<img
 					src="/logo.png"
