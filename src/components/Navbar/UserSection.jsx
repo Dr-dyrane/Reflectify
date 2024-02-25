@@ -42,7 +42,7 @@ const UserSection = ({
 						ref={userDropdownRef}
 					>
 						<div className="px-4 py-3">
-							<span className="block text-sm text-slate-900 dark:text-warm">
+							<span className="block text-sm text-slate-900 dark:text-warm capitalize">
 								{user.email.split("@")[0]}
 							</span>
 							<span className="block text-sm text-slate-500 truncate dark:text-slate-400">
