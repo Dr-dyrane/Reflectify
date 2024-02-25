@@ -8,16 +8,14 @@ import { FaChevronDown, FaChevronUp } from "react-icons/fa";
 import FeatureCard from "../components/FeatureCard";
 import { features } from "../data/features";
 
-const sections = ["Hero", "Features", "Usage", "Testimonials", "Contact"];
+const sections = ["Hero", "Features","Testimonials"];
 
 const Landing = () => {
 	const { user } = useContext(AuthContext);
 	const navigate = useNavigate();
 	const heroRef = useRef(null);
 	const featureRef = useRef(null);
-	const usageRef = useRef(null);
 	const testimonialRef = useRef(null);
-	const contactRef = useRef(null);
 	const [currentSection, setCurrentSection] = useState(0);
 
 	const scrollToTop = () => {
@@ -44,11 +42,7 @@ const Landing = () => {
 			case 1:
 				return featureRef;
 			case 2:
-				return usageRef;
-			case 3:
 				return testimonialRef;
-			case 4:
-				return contactRef;
 			default:
 				return heroRef;
 		}
@@ -118,16 +112,6 @@ const Landing = () => {
 				</div>
 			</section>
 
-			{/* Usage Section */}
-			<section
-				ref={usageRef}
-				id="Usage"
-				className="bg-white dark:bg-gray-900 min-h-screen md:h-auto"
-			>
-				{/* Usage content */}
-				<h1>usage</h1>
-			</section>
-
 			{/* Testimonials Section */}
 			<section
 				ref={testimonialRef}
@@ -136,16 +120,6 @@ const Landing = () => {
 			>
 				{/* Testimonials content */}
 				<h1>testimononial</h1>
-			</section>
-
-			{/* Contact Section */}
-			<section
-				ref={contactRef}
-				id="Contact"
-				className=" bg-white dark:bg-gray-900 min-h-screen md:h-auto"
-			>
-				{/* Contact content */}
-				<h1>contact</h1>
 			</section>
 
 			{/* Animated caret down */}
