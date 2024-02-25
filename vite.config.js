@@ -12,7 +12,7 @@ export default defineConfig({
         description: "Personal journaling app for daily reflection",
         start_url: '/',
         theme_color: "#BB9628",
-        background_color: "#F5F5F5",
+        background_color: "#13192E",
         display: 'standalone',
         icons: [
           {

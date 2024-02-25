@@ -5,10 +5,12 @@ import React, { useContext, useEffect, useMemo, useRef, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { AuthContext } from "../auth/AuthContext";
 import { FaChevronDown, FaChevronUp } from "react-icons/fa";
-import FeatureCard from "../components/FeatureCard";
+import FeatureCard from "../components/Landing/FeatureCard";
 import { features } from "../data/features";
+import { testimonials } from "../data/testimonials";
+import TestimonialCard from "../components/Landing/TestimonialCard";
 
-const sections = ["Hero", "Features","Testimonials"];
+const sections = ["Hero", "Features", "Testimonials"];
 
 const Landing = () => {
 	const { user } = useContext(AuthContext);
@@ -116,10 +118,16 @@ const Landing = () => {
 			<section
 				ref={testimonialRef}
 				id="Testimonials"
-				className="bg-white dark:bg-gray-900 min-h-screen md:h-auto"
+				className="min-h-screen md:h-auto"
 			>
-				{/* Testimonials content */}
-				<h1>testimononial</h1>
+				<div className="container mx-auto px-4">
+					<h2 className="text-2xl font-bold mb-6 text-center">Testimonials</h2>
+					<div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+						{testimonials.map((testimonial, index) => (
+							<TestimonialCard key={index} testimonial={testimonial} />
+						))}
+					</div>
+				</div>
 			</section>
 
 			{/* Animated caret down */}
