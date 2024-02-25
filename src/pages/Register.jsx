@@ -1,13 +1,19 @@
-// src/pages/Register.jsx
-
 import React, { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { useAuth } from "../auth/AuthContext";
 import { PiCaretLeftBold } from "react-icons/pi";
+import { AiOutlineEye, AiOutlineEyeInvisible } from "react-icons/ai";
 
 const Register = () => {
-	const [formData, setFormData] = useState({ email: "", password: "" });
+	const [formData, setFormData] = useState({
+		email: "",
+		password: "",
+		confirmPassword: "",
+	});
 	const [error, setError] = useState("");
+	const [showPassword, setShowPassword] = useState(false);
+	const [showConfirmPassword, setShowConfirmPassword] = useState(false);
+
 	const { user, register } = useAuth();
 	const navigate = useNavigate();
 
@@ -31,8 +37,21 @@ const Register = () => {
 		setFormData({ ...formData, [name]: value });
 	};
 
+	const handleTogglePassword = () => {
+		setShowPassword(!showPassword);
+	};
+
+	const handleToggleConfirmPassword = () => {
+		setShowConfirmPassword(!showConfirmPassword);
+	};
+
 	const handleRegister = async (e) => {
 		e.preventDefault();
+		if (formData.password !== formData.confirmPassword) {
+			setError("Passwords do not match.");
+			return;
+		}
+
 		try {
 			// Call the register function from the AuthContext
 			await register(formData); // Pass the formData directly
@@ -81,7 +100,7 @@ const Register = () => {
 							required
 						/>
 					</div>
-					<div className="flex flex-col">
+					<div className="flex flex-col relative">
 						<label
 							htmlFor="password"
 							className="text-gray-700 dark:text-white mb-2 text-start"
@@ -89,14 +108,49 @@ const Register = () => {
 							Password
 						</label>
 						<input
-							type="password"
+							type={showPassword ? "text" : "password"}
 							id="password"
 							name="password"
 							value={formData.password}
 							onChange={handleChange}
-							className="border border-gray-300 dark:border-gray-700 rounded-3xl p-4"
+							className="border border-gray-300 dark:border-gray-700 rounded-3xl p-4 pr-12"
 							required
 						/>
+						<button
+							type="button"
+							className="absolute top-[68%] transform -translate-y-1/2 right-4"
+							onClick={handleTogglePassword}
+						>
+							{showPassword ? <AiOutlineEyeInvisible /> : <AiOutlineEye />}
+						</button>
+					</div>
+					<div className="flex flex-col relative">
+						<label
+							htmlFor="confirmPassword"
+							className="text-gray-700 dark:text-white mb-2 text-start"
+						>
+							Confirm Password
+						</label>
+						<input
+							type={showConfirmPassword ? "text" : "password"}
+							id="confirmPassword"
+							name="confirmPassword"
+							value={formData.confirmPassword}
+							onChange={handleChange}
+							className="border border-gray-300 dark:border-gray-700 rounded-3xl p-4 pr-12"
+							required
+						/>
+						<button
+							type="button"
+							className="absolute top-[68%] transform -translate-y-1/2 right-4"
+							onClick={handleToggleConfirmPassword}
+						>
+							{showConfirmPassword ? (
+								<AiOutlineEyeInvisible />
+							) : (
+								<AiOutlineEye />
+							)}
+						</button>
 					</div>
 					<button type="submit" className="w-full register-btn">
 						Register
