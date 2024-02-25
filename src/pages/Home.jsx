@@ -49,7 +49,7 @@ function Home() {
         </h1>
 
         {/* Entry Count */}
-        <div className="p-2 bg-white dark:bg-eerie text-lg font-thin text-slate-700 dark:text-slate-400">
+        <div className="p-2 text-lg font-thin text-slate-700 dark:text-slate-400">
           <h2 className="">{entries.length} entries</h2>
           {entries.length === 0 && <p>No entries found.</p>}
         </div>

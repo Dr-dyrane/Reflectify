@@ -6,7 +6,7 @@ const EntryCard = ({ entry }) => {
       <img src={entry.image} alt={entry.title} className="h-32 object-cover" />
       <div className="flex flex-col p-4 justify-center items-start">
         <h3 className="text-lg font-semibold">{entry.title}</h3>
-        <p className="text-gray-600 dark:text-gray-300">{entry.date}</p>
+        <p className="text-gray-600 dark:text-gray-300 font-thin">{entry.date}</p>
       </div>
     </div>
   );

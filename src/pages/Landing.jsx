@@ -133,15 +133,6 @@ const Landing = () => {
 						))}
 					</div>
 				</div>
-				{/* CTA component */}
-				<div className="space-x-4 md:space-x-8">
-					<Link to="/login" className="login-btn">
-						Login
-					</Link>
-					<Link to="/register" className="register-btn">
-						Register
-					</Link>
-				</div>
 			</section>
 
 			{/* Animated caret down */}
