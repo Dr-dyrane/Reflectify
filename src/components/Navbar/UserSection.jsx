@@ -1,6 +1,7 @@
 // UserSection.js
 import React from "react";
 import { Link } from "react-router-dom";
+import { useAuth } from "../../auth/AuthContext";
 
 const UserSection = ({
 	isLoggedIn,
@@ -11,6 +12,7 @@ const UserSection = ({
 }) => {
 	const imagUrl =
 		"https://images.pexels.com/photos/35065/homeless-man-color-poverty.jpg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1";
+	const { user, logout } = useAuth();
 	return (
 		<div>
 			{isLoggedIn ? (
@@ -41,10 +43,10 @@ const UserSection = ({
 					>
 						<div className="px-4 py-3">
 							<span className="block text-sm text-slate-900 dark:text-warm">
-								Bonnie Green
+								{user.email.split("@")[0]}
 							</span>
 							<span className="block text-sm text-slate-500 truncate dark:text-slate-400">
-								name@flowbite.com
+								{user.email}
 							</span>
 						</div>
 						<ul className="py-2" aria-labelledby="user-menu-button">
