@@ -55,14 +55,15 @@ const AddEntry = () => {
 	};
 
 	return (
-		<div className="container mx-auto px-4 py-8 overflow-auto">
+		<div className="container mx-auto px-4 py-8 overflow-auto relative">
 			{/* Header UI */}
-			<div className="flex items-center justify-between border-b border-gray-300 dark:border-gray-700 pb-4 mb-4">
+			<div className="grid grid-cols-2 items-center justify-between border-b border-gray-300 dark:border-gray-700 pb-4 mb-4">
 				{/* Title Input */}
-				<div className="flex-1">
+				<div className="col-span-1 mr-4">
 					{" "}
 					<input
 						type="text"
+                        style={{ width: 'calc(100% - 8px)' }}
 						name="title"
 						value={entryData.title}
 						onChange={handleChange}
@@ -71,7 +72,7 @@ const AddEntry = () => {
 					/>
 				</div>
                 {/* features */}
-				<div className="flex flex-1 flex-row">
+				<div className="col-span-1 flex flex-row space-x-2">
 					{/* Mood Dropdown */}
 					<div className="relative">
 						<button
@@ -193,14 +194,14 @@ const AddEntry = () => {
 				value={entryData.content}
 				onChange={handleChange}
 				placeholder="Enter your content here..."
-				className="w-full h-48 px-4 py-2 border border-gray-300 dark:border-gray-700 rounded-md focus:outline-none"
+				className="w-full h-80 px-4 py-2 border border-gray-300 dark:border-gray-700 rounded-md focus:outline-none"
 			/>
 
 			{/* Save Button */}
 			<button
 				type="submit"
 				onClick={handleSubmit}
-				className="bg-blue-500 text-white px-4 py-2 mt-8 rounded-md"
+				className="absolute bottom-2 right-4 bg-blue-500 text-white p-6 rounded-full"
 			>
 				Save
 			</button>
@@ -208,9 +209,9 @@ const AddEntry = () => {
 			{/* Go Back Button */}
 			<button
 				onClick={() => navigate(-1)}
-				className="absolute top-4 left-4 text-gray-600 dark:text-gray-400"
+				className="absolute top-40 left-4 text-golden"
 			>
-				<FaChevronLeft />
+				<FaChevronLeft size={32}/>
 			</button>
 		</div>
 	);
