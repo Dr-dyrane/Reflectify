@@ -1,28 +1,21 @@
 // api/entryApi.js
 
-// Example implementation of entry API functions
+import { addEntry, getEntriesByUserId, updateEntry, deleteEntry } from "../data/entryStore";
 
-// Function to fetch all entries (simulated data)
-const getAllEntries = () => {
-    // Simulated entries data
-    const entries = [
-      {
-        id: 1,
-        title: "First Entry",
-        date: "2024-02-26",
-        image: "https://via.placeholder.com/300",
-      },
-      {
-        id: 2,
-        title: "Second Entry",
-        date: "2024-02-25",
-        image: "https://via.placeholder.com/300",
-      },
-      // Add more entries as needed
-    ];
-    return Promise.resolve(entries);
-  };
-  
-  // Export API functions
-  export { getAllEntries };
-  
+const addNewEntry = (userId, entryData) => {
+  addEntry(userId, entryData);
+};
+
+const getAllEntriesByUserId = (userId) => {
+  return getEntriesByUserId(userId);
+};
+
+const updateExistingEntry = (userId, entryId, updatedEntryData) => {
+  updateEntry(userId, entryId, updatedEntryData);
+};
+
+const deleteExistingEntry = (userId, entryId) => {
+  deleteEntry(userId, entryId);
+};
+
+export { addNewEntry, getAllEntriesByUserId, updateExistingEntry, deleteExistingEntry };

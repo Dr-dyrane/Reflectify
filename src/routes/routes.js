@@ -5,12 +5,18 @@ import Login from "../pages/Login";
 import Logout from "../pages/Logout";
 import Register from "../pages/Register";
 import Home from "../pages/Home";
+import AddEntry from "../pages/AddEntry";
 
 const RouteConfig = () => {
 	const routes = [
 		{
 			path: "/",
 			element: Landing,
+			props: {},
+		},
+		{
+			path: "/add-entry",
+			element: AddEntry,
 			props: {},
 		},
 		{
