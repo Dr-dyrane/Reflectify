@@ -3,9 +3,9 @@
 import React, { useContext, useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { AuthContext } from "../auth/AuthContext";
-import { getAllEntriesByUserId } from "../api/entryApi";
+import { getAllEntriesByUserId, deleteExistingEntry } from "../api/entryApi";
 import EntryCard from "../components/Home/EntryCard";
-import { FaSearch, FaCog, FaPlus } from "react-icons/fa";
+import { FaSearch, FaPlus } from "react-icons/fa";
 import { SlOptionsVertical } from "react-icons/sl";
 
 function Home() {
@@ -24,10 +24,23 @@ function Home() {
 
 	const fetchEntries = async () => {
 		try {
-			const allEntries = await getAllEntriesByUserId();
+			const allEntries = await getAllEntriesByUserId(user.id);
 			setEntries(allEntries);
 		} catch (error) {
 			console.error("Error fetching entries:", error);
+		}
+	};
+
+	const handleEdit = (id) => {
+		navigate(`/edit-entry/${id}`);
+	};
+
+	const handleDelete = async (id) => {
+		try {
+			await deleteExistingEntry(id);
+			setEntries(entries.filter((entry) => entry.id !== id));
+		} catch (error) {
+			console.error("Error deleting entry:", error);
 		}
 	};
 
@@ -61,7 +74,12 @@ function Home() {
 			{/* Entry Cards */}
 			<div className="flex flex-wrap justify-center gap-6 p-6">
 				{entries.map((entry) => (
-					<EntryCard key={entry.id} entry={entry} />
+					<EntryCard
+						key={entry.id}
+						entry={entry}
+						onEdit={handleEdit}
+						onDelete={handleDelete}
+					/>
 				))}
 			</div>
 

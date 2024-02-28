@@ -6,6 +6,7 @@ import Logout from "../pages/Logout";
 import Register from "../pages/Register";
 import Home from "../pages/Home";
 import AddEntry from "../pages/AddEntry";
+import EditEntry from "../pages/EditEntry";
 
 const RouteConfig = () => {
 	const routes = [
@@ -19,6 +20,11 @@ const RouteConfig = () => {
 			element: AddEntry,
 			props: {},
 		},
+		{
+			path: "/edit-entry/:id", // Add route for EditEntry with ID parameter
+			element: EditEntry,
+			props: {},
+		  },
 		{
 			path: "/login",
 			element: Login,
