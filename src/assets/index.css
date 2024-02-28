@@ -13,3 +13,18 @@
 		@apply absolute top-full right-0 bg-white dark:bg-gray-800 shadow-lg border border-gray-300 dark:border-gray-700 rounded-md mt-1 w-auto text-golden text-start;
 	}
 }
+
+.line-clamp-2 {
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+
+  .line-clamp-1 {
+    display: -webkit-box;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+
