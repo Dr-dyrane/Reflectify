@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { useAuth } from "../auth/AuthContext";
+import { v4 as uuidv4 } from "uuid";
 import { PiCaretLeftBold } from "react-icons/pi";
 import { AiOutlineEye, AiOutlineEyeInvisible } from "react-icons/ai";
 
@@ -53,8 +54,9 @@ const Register = () => {
 		}
 
 		try {
-			// Call the register function from the AuthContext
-			await register(formData); // Pass the formData directly
+			const userId = uuidv4(); // Generate user ID
+			const userData = { ...formData, id: userId }; // Include user ID in userData
+			await register(userData); // Pass userData to register function
 
 			// After successful registration, navigate to the home page
 			navigate("/home");

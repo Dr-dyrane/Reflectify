@@ -7,8 +7,7 @@ const addEntry = (userId, entryData) => {
   if (!entries[userId]) {
     entries[userId] = [];
   }
-  const entryWithId = { id: Date.now(), ...entryData }; // Generate unique ID for the entry
-  entries[userId].push(entryWithId);
+  entries[userId].push(entryData);
   localStorage.setItem(ENTRY_STORE_KEY, JSON.stringify(entries));
 };
 

@@ -47,15 +47,25 @@ const EditEntry = () => {
 	});
 
 	useEffect(() => {
-		if (user && user.id) {
-			getEntryById(user.id, id).then((data) => {
+		console.log(id)
+		console.log(user?.id)
+		if (user && user?.id) {
+			getEntryById(user?.id, id).then((data) => {
 				if (data) {
 					console.log(data);
 					setEntryData(data);
+				} else {
+					console.log("Entry not found or data is undefined");
+					// Handle the case where the entry is not found or data is undefined
+					// For example, you could redirect the user to a different page or display an error message
 				}
+			}).catch(error => {
+				console.error("Error fetching entry:", error);
+				// Handle the error gracefully (e.g., display an error message)
 			});
 		}
 	}, [user]);
+	
 
 	if (!entryData) {
 		return <div>Loading...</div>;
