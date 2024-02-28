@@ -7,7 +7,9 @@ import {
 	FaRegSmile,
 	FaRegBookmark,
 	FaStar,
+	FaCheck,
 } from "react-icons/fa";
+import { SiAddthis  } from "react-icons/si";
 
 const AddEntry = () => {
 	const { user } = useAuth();
@@ -55,38 +57,42 @@ const AddEntry = () => {
 	};
 
 	return (
-		<div className="container mx-auto px-4 py-8 overflow-auto relative">
+		<div className="container mx-auto p-4 overflow-auto relative min-h-screen space-y-4">
 			{/* Header UI */}
-			<div className="grid grid-cols-2 items-center justify-between border-b border-gray-300 dark:border-gray-700 pb-4 mb-4">
+			<div className="grid grid-cols-2 items-center justify-between space-x-12">
 				{/* Title Input */}
-				<div className="col-span-1 mr-4">
-					{" "}
+				<div className="col-span-1 flex space-x-4">
+					{/* Go Back Button */}
+					<button onClick={() => navigate(-1)} className="text-golden">
+						<FaChevronLeft className="text-xl" />
+					</button>
 					<input
 						type="text"
-                        style={{ width: 'calc(100% - 8px)' }}
+						style={{ width: "calc(100% - 8px)", backgroundColor: 'transparent' }}
 						name="title"
 						value={entryData.title}
 						onChange={handleChange}
 						placeholder="Title"
-						className="px-4 py-2 border border-gray-300 dark:border-gray-700 rounded-md focus:outline-none"
+						className="p-2 focus:outline-none"
+                        autoFocus
 					/>
 				</div>
-                {/* features */}
-				<div className="col-span-1 flex flex-row space-x-2">
+				{/* features */}
+				<div className="col-span-1 flex flex-row space-x-2 z-20">
 					{/* Mood Dropdown */}
 					<div className="relative">
 						<button
 							onClick={() => toggleDropdown("mood")}
-							className="border border-gray-300 dark:border-gray-700 rounded-md px-4 py-2 focus:outline-none"
+							className="text-golden rounded-md p-2 focus:outline-none"
 						>
 							<FaRegSmile className="text-xl" />
 						</button>
 						{dropdowns.mood && (
-							<div className="absolute top-full left-0 bg-white dark:bg-gray-800 shadow-lg border border-gray-300 dark:border-gray-700 rounded-md mt-1 w-full">
+							<div className="add-feature-icon">
 								<ul>
 									<li
 										onClick={() => handleSelect("Happy", "mood")}
-										className="px-4 py-2 cursor-pointer hover:bg-gray-100 dark:hover:bg-gray-700"
+										className="p-2 cursor-pointer hover:bg-gray-100 dark:hover:bg-gray-700"
 									>
 										Happy
 									</li>
@@ -106,12 +112,12 @@ const AddEntry = () => {
 					<div className="relative">
 						<button
 							onClick={() => toggleDropdown("journalCategory")}
-							className="border border-gray-300 dark:border-gray-700 rounded-md px-4 py-2 focus:outline-none"
+							className="text-golden rounded-md px-4 py-2 focus:outline-none"
 						>
 							<FaRegBookmark className="text-xl" />
 						</button>
 						{dropdowns.journalCategory && (
-							<div className="absolute top-full left-0 bg-white dark:bg-gray-800 shadow-lg border border-gray-300 dark:border-gray-700 rounded-md mt-1 w-full">
+							<div className="add-feature-icon">
 								<ul>
 									<li
 										onClick={() => handleSelect("Personal", "journalCategory")}
@@ -135,12 +141,12 @@ const AddEntry = () => {
 					<div className="relative">
 						<button
 							onClick={() => toggleDropdown("important")}
-							className="border border-gray-300 dark:border-gray-700 rounded-md px-4 py-2 focus:outline-none"
+							className="text-golden rounded-md p-2 focus:outline-none"
 						>
 							<FaStar className="text-xl" />
 						</button>
 						{dropdowns.important && (
-							<div className="absolute top-full left-0 bg-white dark:bg-gray-800 shadow-lg border border-gray-300 dark:border-gray-700 rounded-md mt-1 w-full">
+							<div className="add-feature-icon">
 								<ul>
 									<li
 										onClick={() => handleSelect("Important", "important")}
@@ -166,13 +172,13 @@ const AddEntry = () => {
 				<img
 					src={entryData.image}
 					alt="Entry Image"
-					className="w-full h-48 object-cover mb-4 rounded-lg"
+					className="w-full h-48 object-cover mb-4 rounded-[32px] z-10"
 				/>
 				<label
 					htmlFor="imageInput"
-					className="absolute bottom-0 right-0 bg-blue-500 text-white px-2 py-1 rounded-md cursor-pointer"
+					className="absolute bottom-0 right-0 cursor-pointer text-golden"
 				>
-					Add Image
+					<SiAddthis size={40} />
 					<input
 						type="file"
 						id="imageInput"
@@ -193,25 +199,18 @@ const AddEntry = () => {
 				name="content"
 				value={entryData.content}
 				onChange={handleChange}
-				placeholder="Enter your content here..."
-				className="w-full h-80 px-4 py-2 border border-gray-300 dark:border-gray-700 rounded-md focus:outline-none"
+                autoFocus
+				placeholder="Start reflecting..."
+				className="w-full h-[480px] p-8 bg-transparent rounded-[32px] focus:outline-none"
 			/>
 
 			{/* Save Button */}
 			<button
 				type="submit"
 				onClick={handleSubmit}
-				className="absolute bottom-2 right-4 bg-blue-500 text-white p-6 rounded-full"
+				className="absolute bottom-8 right-8 bg-golden text-white p-6 rounded-full shadow-lg"
 			>
-				Save
-			</button>
-
-			{/* Go Back Button */}
-			<button
-				onClick={() => navigate(-1)}
-				className="absolute top-40 left-4 text-golden"
-			>
-				<FaChevronLeft size={32}/>
+				<FaCheck />
 			</button>
 		</div>
 	);

@@ -10,7 +10,7 @@ const EntryCard = ({ entry, onEdit, onDelete }) => {
       <div className="flex flex-col p-4 justify-center items-start">
         <h3 className="text-lg font-semibold">{entry.name}</h3>
         <p>{entry.content}</p>
-        <p className="text-gray-600 dark:text-gray-300 font-thin">{entry.date}</p>
+        {/* <p className="text-gray-600 dark:text-gray-300 font-thin">{entry.date}</p> */}
         <div className="flex mt-4">
           <button onClick={() => onEdit(entry.id)} className="mr-2 text-blue-500">
             <FaEdit />
