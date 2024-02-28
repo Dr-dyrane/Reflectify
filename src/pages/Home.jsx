@@ -37,7 +37,7 @@ function Home() {
 
 	const handleDelete = async (id) => {
 		try {
-			await deleteExistingEntry(id);
+			await deleteExistingEntry(user.id, id);
 			setEntries(entries.filter((entry) => entry.id !== id));
 		} catch (error) {
 			console.error("Error deleting entry:", error);
