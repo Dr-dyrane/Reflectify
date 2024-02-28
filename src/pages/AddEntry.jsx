@@ -57,7 +57,7 @@ const AddEntry = () => {
 	};
 
 	return (
-		<div className="container mx-auto p-4 overflow-auto relative min-h-screen space-y-4">
+		<div className="container text-golden font-thin mx-auto p-4 overflow-auto relative min-h-screen space-y-4">
 			{/* Header UI */}
 			<div className="grid grid-cols-2 items-center justify-between space-x-12">
 				{/* Title Input */}
