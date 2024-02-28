@@ -9,7 +9,7 @@ import {
 	FaStar,
 	FaCheck,
 } from "react-icons/fa";
-import { SiAddthis  } from "react-icons/si";
+import { SiAddthis } from "react-icons/si";
 
 const AddEntry = () => {
 	const { user } = useAuth();
@@ -68,13 +68,16 @@ const AddEntry = () => {
 					</button>
 					<input
 						type="text"
-						style={{ width: "calc(100% - 8px)", backgroundColor: 'transparent' }}
+						style={{
+							width: "calc(100% - 8px)",
+							backgroundColor: "transparent",
+						}}
 						name="title"
 						value={entryData.title}
 						onChange={handleChange}
 						placeholder="Title"
 						className="p-2 focus:outline-none"
-                        autoFocus
+						autoFocus
 					/>
 				</div>
 				{/* features */}
@@ -199,7 +202,7 @@ const AddEntry = () => {
 				name="content"
 				value={entryData.content}
 				onChange={handleChange}
-                autoFocus
+				autoFocus
 				placeholder="Start reflecting..."
 				className="w-full h-[480px] p-8 bg-transparent rounded-[32px] focus:outline-none"
 			/>
