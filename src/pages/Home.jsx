@@ -19,7 +19,6 @@ function Home() {
 			navigate("/login");
 		} else {
 			fetchEntries();
-			console.log(user);
 		}
 	}, [user, navigate]);
 

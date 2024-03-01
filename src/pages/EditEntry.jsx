@@ -47,25 +47,23 @@ const EditEntry = () => {
 	});
 
 	useEffect(() => {
-		console.log(id)
-		console.log(user?.id)
 		if (user && user?.id) {
-			getEntryById(user?.id, id).then((data) => {
-				if (data) {
-					console.log(data);
-					setEntryData(data);
-				} else {
-					console.log("Entry not found or data is undefined");
-					// Handle the case where the entry is not found or data is undefined
-					// For example, you could redirect the user to a different page or display an error message
-				}
-			}).catch(error => {
-				console.error("Error fetching entry:", error);
-				// Handle the error gracefully (e.g., display an error message)
-			});
+			getEntryById(user?.id, id)
+				.then((data) => {
+					if (data) {
+						setEntryData(data);
+					} else {
+						console.log("Entry not found or data is undefined");
+						// Handle the case where the entry is not found or data is undefined
+						// For example, you could redirect the user to a different page or display an error message
+					}
+				})
+				.catch((error) => {
+					console.error("Error fetching entry:", error);
+					// Handle the error gracefully (e.g., display an error message)
+				});
 		}
 	}, [user]);
-	
 
 	if (!entryData) {
 		return <div>Loading...</div>;
@@ -83,6 +81,26 @@ const EditEntry = () => {
 		// Redirect to home page
 		navigate("/home");
 	};
+
+	// Effect to handle keyboard visibility
+	useEffect(() => {
+		const handleResize = () => {
+			const windowHeight = window.innerHeight;
+			const contentHeight = document.getElementById("content").offsetHeight;
+			const keyboardVisible = windowHeight < contentHeight;
+			if (keyboardVisible) {
+				// Adjust layout for keyboard visibility
+				document.getElementById("content").style.bottom = "40vh";
+			} else {
+				// Reset layout when keyboard is hidden
+				document.getElementById("content").style.bottom = "0";
+			}
+		};
+
+		window.addEventListener("resize", handleResize);
+
+		return () => window.removeEventListener("resize", handleResize);
+	}, []);
 
 	return (
 		<div className="container text-golden font-thin mx-auto p-4 overflow-auto relative min-h-screen space-y-4">
@@ -227,6 +245,7 @@ const EditEntry = () => {
 
 			{/* Content Input */}
 			<textarea
+				id="content"
 				name="content"
 				value={entryData.content}
 				onChange={handleChange}
