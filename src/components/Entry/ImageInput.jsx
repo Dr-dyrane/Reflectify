@@ -3,7 +3,34 @@ import { SiAddthis } from "react-icons/si";
 
 function ImageInput({ setImage, entryData }) {
 	const handleImageChange = (e) => {
-		setImage(URL.createObjectURL(e.target.files[0]));
+		const file = e.target.files[0];
+		const reader = new FileReader();
+
+		reader.onload = (event) => {
+			const imageData = event.target.result;
+			// Retrieve existing image data from local storage
+			let existingImageData = localStorage.getItem("entryImageData");
+
+			// If there is existing image data, append the new data to it
+			if (existingImageData) {
+				existingImageData = JSON.parse(existingImageData);
+				existingImageData.push(imageData);
+				// Save the updated image data array back to local storage
+				localStorage.setItem(
+					"entryImageData",
+					JSON.stringify(existingImageData)
+				);
+			} else {
+				// If no existing data, create a new array with the current image data
+				localStorage.setItem("entryImageData", JSON.stringify([imageData]));
+			}
+
+			// Set the image data directly as the URL
+			setImage(imageData);
+		};
+
+		// Read the file as a data URL
+		reader.readAsDataURL(file);
 	};
 	return (
 		<div className="relative w-full mb-8">
