@@ -4,36 +4,15 @@ import React, { useState, useEffect, useContext } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { AuthContext } from "../auth/AuthContext";
 import { updateExistingEntry, getEntryById } from "../api/entryApi";
-import {
-	FaChevronLeft,
-	FaRegSmile,
-	FaRegBookmark,
-	FaStar,
-	FaCheck,
-} from "react-icons/fa";
+import { FaChevronLeft, FaCheck } from "react-icons/fa";
 import { SiAddthis } from "react-icons/si";
+import Dropdown from "../components/Entry/Dropdown"; // Import the Dropdown component
+import dropdownData from "../components/Entry/dropdownData"; // Import the dropdownData array
 
 const EditEntry = () => {
 	const { user } = useContext(AuthContext);
 	const navigate = useNavigate();
 	const { id } = useParams();
-	const [dropdowns, setDropdowns] = useState({
-		mood: false,
-		journalCategory: false,
-		important: false,
-	});
-
-	const toggleDropdown = (dropdown) => {
-		setDropdowns((prevDropdowns) => ({
-			...prevDropdowns,
-			[dropdown]: !prevDropdowns[dropdown],
-		}));
-	};
-
-	const handleSelect = (option, dropdown) => {
-		console.log("Selected", option, "in", dropdown);
-		// Here you can set the selected value in your state or perform any other action
-	};
 
 	const [entryData, setEntryData] = useState({
 		title: "",
@@ -126,94 +105,8 @@ const EditEntry = () => {
 						autoFocus
 					/>
 				</div>
-				{/* features */}
-				<div className="col-span-1 flex flex-row space-x-2 z-20">
-					{/* Mood Dropdown */}
-					<div className="relative">
-						<button
-							onClick={() => toggleDropdown("mood")}
-							className="text-golden rounded-md p-2 focus:outline-none"
-						>
-							<FaRegSmile className="text-xl" />
-						</button>
-						{dropdowns.mood && (
-							<div className="add-feature-icon">
-								<ul>
-									<li
-										onClick={() => handleSelect("Happy", "mood")}
-										className="p-2 cursor-pointer hover:bg-gray-100 dark:hover:bg-gray-700"
-									>
-										Happy
-									</li>
-									<li
-										onClick={() => handleSelect("Sad", "mood")}
-										className="px-4 py-2 cursor-pointer hover:bg-gray-100 dark:hover:bg-gray-700"
-									>
-										Sad
-									</li>
-									{/* Add more mood options as needed */}
-								</ul>
-							</div>
-						)}
-					</div>
-
-					{/* Journal Category Dropdown */}
-					<div className="relative">
-						<button
-							onClick={() => toggleDropdown("journalCategory")}
-							className="text-golden rounded-md px-4 py-2 focus:outline-none"
-						>
-							<FaRegBookmark className="text-xl" />
-						</button>
-						{dropdowns.journalCategory && (
-							<div className="add-feature-icon">
-								<ul>
-									<li
-										onClick={() => handleSelect("Personal", "journalCategory")}
-										className="px-4 py-2 cursor-pointer hover:bg-gray-100 dark:hover:bg-gray-700"
-									>
-										Personal
-									</li>
-									<li
-										onClick={() => handleSelect("Work", "journalCategory")}
-										className="px-4 py-2 cursor-pointer hover:bg-gray-100 dark:hover:bg-gray-700"
-									>
-										Work
-									</li>
-									{/* Add more journal category options as needed */}
-								</ul>
-							</div>
-						)}
-					</div>
-
-					{/* Importance Dropdown */}
-					<div className="relative">
-						<button
-							onClick={() => toggleDropdown("important")}
-							className="text-golden rounded-md p-2 focus:outline-none"
-						>
-							<FaStar className="text-xl" />
-						</button>
-						{dropdowns.important && (
-							<div className="add-feature-icon">
-								<ul>
-									<li
-										onClick={() => handleSelect("Important", "important")}
-										className="px-4 py-2 cursor-pointer hover:bg-gray-100 dark:hover:bg-gray-700"
-									>
-										Important
-									</li>
-									<li
-										onClick={() => handleSelect("Not Important", "important")}
-										className="px-4 py-2 cursor-pointer hover:bg-gray-100 dark:hover:bg-gray-700"
-									>
-										Not Important
-									</li>
-								</ul>
-							</div>
-						)}
-					</div>
-				</div>
+				{/* Dropdowns */}
+				<Dropdown dropdownData={dropdownData} />
 			</div>
 
 			{/* Image Input */}
