@@ -20,10 +20,10 @@ const EntryCard = ({ entry, onEdit, onDelete }) => {
         <p className="line-clamp-2">{entry.content}</p>
         <p className="text-gray-600 dark:text-gray-300 font-thin text-xs">{formatDate(entry.date)}</p>
         <div className="flex mt-2 justify-end w-full space-x-3">
-          <button onClick={() => onEdit(entry.id)} className="mr-2 text-blue-500">
+          <button onClick={() => onEdit(entry.id)} className="edit-btn">
             edit
           </button>
-          <button onClick={() => onDelete(entry.id)} className="text-red-500">
+          <button onClick={() => onDelete(entry.id)} className="delete-btn">
             delete
           </button>
         </div>

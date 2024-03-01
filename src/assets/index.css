@@ -6,6 +6,12 @@
 	.login-btn {
 		@apply ring-offset-2 dark:ring-offset-eerie ring-2 ring-blue-500 bg-blue-500 dark:bg-blue-300 dark:ring-blue-300 hover:ring-golden hover:bg-golden hover:text-warm hover:ring-offset-warm text-white dark:text-eerie p-[21.5px] rounded-[32px] transition duration-300 ease-in-out;
 	}
+	.edit-btn {
+		@apply ring-offset-2 dark:ring-offset-eerie ring-2 ring-blue-600/50 bg-blue-600/50 dark:bg-blue-200/50 dark:ring-blue-200/50 hover:ring-golden hover:bg-golden hover:text-warm hover:ring-offset-warm text-white dark:text-eerie p-2 rounded-[32px] transition duration-300 ease-in-out;
+	}
+	.delete-btn {
+		@apply ring-offset-2 dark:ring-offset-eerie ring-2 ring-slate-700/50 bg-slate-700/50 dark:bg-red-200/50 dark:ring-red-200/50 hover:ring-red-500 hover:bg-red-500 hover:text-warm hover:ring-offset-warm text-white dark:text-eerie p-2 rounded-[32px] transition duration-300 ease-in-out;
+	}
 	.register-btn {
 		@apply ring-offset-2 dark:ring-offset-eerie ring-2 hover:ring-golden hover:bg-golden hover:ring-offset-warm ring-slate-700 dark:ring-warm bg-slate-700 dark:bg-slate-200 text-white dark:text-black hover:text-white p-[21.5px] rounded-[32px] transition duration-300 ease-in-out;
 	}

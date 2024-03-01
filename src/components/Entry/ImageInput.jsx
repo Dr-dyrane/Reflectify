@@ -24,13 +24,13 @@ function ImageInput({ setImage, entryData }) {
 			<img
 				src={entryData.image}
 				alt="Entry Image"
-				className="w-full h-48 object-cover mb-4 rounded-[32px] z-10"
+				className="w-48 h-48 object-cover mb-4 rounded-[32px] z-10"
 			/>
 			<label
 				htmlFor="imageInput"
-				className="absolute bottom-0 right-0 cursor-pointer text-golden"
+				className="absolute bottom-[35%] right-[45%] cursor-pointer text-slate-500/60 hover:text-golden focus"
 			>
-				<SiAddthis size={40} />
+				<SiAddthis size={56} />
 				<input
 					type="file"
 					id="imageInput"
