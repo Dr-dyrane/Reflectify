@@ -14,7 +14,7 @@ const formatDate = (dateString) => {
 const EntryCard = ({ entry, onEdit, onDelete }) => {
   return (
     <div className="flex text-golden max-w-sm rounded-[32px] overflow-hidden bg-white-coco dark:bg-metal shadow-3xl w-full p-4 font-thin">
-      <img src={entry.image} alt={entry.title} className="h-32 object-cover rounded-3xl" />
+      <img src={entry.image} alt={entry.title} className="h-32 w-40 object-cover rounded-3xl" />
       <div className="flex flex-col p-4 justify-center items-start w-full">
         <h3 className="text-lg font-medium capitalize line-clamp-1">{entry.title || entry.name}</h3>
         <p className="line-clamp-2">{entry.content}</p>

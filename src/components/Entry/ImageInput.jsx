@@ -24,7 +24,7 @@ function ImageInput({ setImage, entryData }) {
 			<img
 				src={entryData.image}
 				alt="Entry Image"
-				className="w-48 h-48 object-cover mb-4 rounded-[32px] z-10"
+				className="w-full h-48 object-cover mb-4 rounded-[32px] z-10"
 			/>
 			<label
 				htmlFor="imageInput"
