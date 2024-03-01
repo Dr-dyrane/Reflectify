@@ -1,5 +1,6 @@
 import React from "react";
 import { SiAddthis } from "react-icons/si";
+import ImageApi from "../../api/ImageApi";
 
 function ImageInput({ setImage, entryData }) {
 	const handleImageChange = (e) => {
@@ -8,22 +9,8 @@ function ImageInput({ setImage, entryData }) {
 
 		reader.onload = (event) => {
 			const imageData = event.target.result;
-			// Retrieve existing image data from local storage
-			let existingImageData = localStorage.getItem("entryImageData");
-
-			// If there is existing image data, append the new data to it
-			if (existingImageData) {
-				existingImageData = JSON.parse(existingImageData);
-				existingImageData.push(imageData);
-				// Save the updated image data array back to local storage
-				localStorage.setItem(
-					"entryImageData",
-					JSON.stringify(existingImageData)
-				);
-			} else {
-				// If no existing data, create a new array with the current image data
-				localStorage.setItem("entryImageData", JSON.stringify([imageData]));
-			}
+			// Create new image entry using API
+			ImageApi.createImage(imageData);
 
 			// Set the image data directly as the URL
 			setImage(imageData);

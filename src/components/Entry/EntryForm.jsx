@@ -30,7 +30,7 @@ const EntryForm = ({ entryId, fetchEntryById, saveEntry }) => {
 				.then((data) => {
 					if (data) {
 						setEntryData(data);
-                        console.log(data.image)
+                        //console.log(data.image)
 					} else {
 						console.log("Entry not found or data is undefined");
 						// Handle the case where the entry is not found or data is undefined
