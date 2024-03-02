@@ -28,7 +28,7 @@ function ImageInput({ setImage, entryData }) {
 			/>
 			<label
 				htmlFor="imageInput"
-				className="absolute bottom-[35%] right-[45%] cursor-pointer ring-offset-4 ring-4 ring-golden/50 hover:ring-golden text-golden/50 hover:text-golden focus rounded-lg animate-pulse hover:animate-none"
+				className="absolute bottom-[35%] right-[45%] cursor-pointer ring-offset-4 ring-4 ring-golden/50 dark:ring-offset-metal hover:ring-golden text-golden/50 hover:text-golden focus rounded-lg animate-pulse hover:animate-none"
 			>
 				<SiAddthis size={56} />
 				<input
