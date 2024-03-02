@@ -1,8 +1,23 @@
-import React, { useState } from "react";
-import { FaRegSmile, FaRegBookmark, FaStar } from "react-icons/fa";
+import React, { useState, useEffect, useRef } from "react";
+import { FaRegSmile, FaRegBookmark, FaRegStar } from "react-icons/fa";
 
-const Dropdown = ({ dropdownData }) => {
+const Dropdown = ({ dropdownData, setEntryData }) => {
     const [dropdowns, setDropdowns] = useState({});
+    const dropdownRefs = useRef([]);
+
+    useEffect(() => {
+        const handleOutsideClick = (e) => {
+            if (!dropdownRefs.current.some(ref => ref && ref.contains(e.target))) {
+                setDropdowns({});
+            }
+        };
+
+        document.addEventListener("mousedown", handleOutsideClick);
+
+        return () => {
+            document.removeEventListener("mousedown", handleOutsideClick);
+        };
+    }, []);
 
     const toggleDropdown = (dropdown) => {
         setDropdowns((prevDropdowns) => ({
@@ -12,8 +27,11 @@ const Dropdown = ({ dropdownData }) => {
     };
 
     const handleSelect = (option, dropdown) => {
-        console.log("Selected", option, "in", dropdown);
-        // Here you can set the selected value in your state or perform any other action
+        setEntryData((prevData) => ({
+            ...prevData,
+            [dropdown]: option,
+        }));
+        toggleDropdown(dropdown);
     };
 
     return (
@@ -23,10 +41,10 @@ const Dropdown = ({ dropdownData }) => {
                 const IconComponent = {
                     FaRegSmile: <FaRegSmile className="text-xl" />,
                     FaRegBookmark: <FaRegBookmark className="text-xl" />,
-                    FaStar: <FaStar className="text-xl" />
+                    FaStarEmpty: <FaRegStar className="text-xl" />
                 }[dropdown.icon];
                 return (
-                    <div key={index} className="relative">
+                    <div key={index} className="relative dropdown" ref={el => dropdownRefs.current[index] = el}>
                         <button
                             onClick={() => toggleDropdown(dropdown.name)}
                             className="text-golden rounded-md p-2 focus:outline-none"

@@ -1,7 +1,6 @@
 // src/components/Home/EntryCard.jsx
 
 import React from "react";
-import { FaEdit, FaTrash } from "react-icons/fa";
 
 // Function to format date to "DD MMM" format
 const formatDate = (dateString) => {

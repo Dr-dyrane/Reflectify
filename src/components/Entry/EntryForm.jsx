@@ -85,7 +85,7 @@ const EntryForm = ({ entryId, fetchEntryById, saveEntry }) => {
 					/>
 				</div>
 				{/* Dropdowns */}
-				<Dropdown dropdownData={dropdownData} />
+				<Dropdown dropdownData={dropdownData} setEntryData={setEntryData}/>
 			</div>
 
 			{/* Image Input */}

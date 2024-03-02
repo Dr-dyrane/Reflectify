@@ -1,17 +1,17 @@
 const dropdownData = [
     {
         name: "mood",
-        icon: "FaRegSmile", // Use string literals for icon names
-        options: ["Happy", "Sad", /* Add more mood options as needed */]
+        icon: "FaRegSmile", // Default icon
+        options: ["Happy", "Sad", "Angry", "Excited", "Peaceful", "Confused"] // Added more mood options
     },
     {
         name: "journalCategory",
-        icon: "FaRegBookmark", // Use string literals for icon names
-        options: ["Personal", "Work", /* Add more journal category options as needed */]
+        icon: "FaRegBookmark", // Default icon
+        options: ["Personal", "Work", "Travel", "Fitness", "Food", "Study"] // Added more journal category options
     },
     {
         name: "important",
-        icon: "FaStar", // Use string literals for icon names
+        icon: "FaStarEmpty", // Default icon for not important
         options: ["Important", "Not Important"]
     }
 ];
