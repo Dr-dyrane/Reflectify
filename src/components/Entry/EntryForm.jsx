@@ -106,8 +106,9 @@ const EntryForm = ({ entryId, fetchEntryById, saveEntry }) => {
 			<button
 				type="submit"
 				onClick={handleSubmit}
-				className="absolute bottom-8 right-8 bg-golden text-white p-6 rounded-full shadow-lg"
-                style={{ marginBottom: isKeyboardVisible ? keyboardHeight : 0 }}
+				className={`absolute right-8 bg-golden text-white p-6 rounded-full shadow-lg ${
+					isKeyboardVisible ? "bottom-20" : "bottom-8"
+				}`}
 			>
 				<FaCheck />
 			</button>
