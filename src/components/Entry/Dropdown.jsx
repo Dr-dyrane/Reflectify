@@ -17,7 +17,7 @@ const Dropdown = ({ dropdownData }) => {
     };
 
     return (
-        <div className="flex flex-row space-x-2 z-20">
+        <div className="flex flex-row space-x-2 z-20 justify-end">
             {dropdownData.map((dropdown, index) => {
                 // Convert icon string to React component
                 const IconComponent = {

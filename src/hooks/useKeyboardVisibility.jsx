@@ -1,24 +1,31 @@
-import { useEffect } from "react";
+import { useEffect, useState } from 'react';
 
-const useKeyboardVisibility = (contentId) => {
-    useEffect(() => {
-        const handleResize = () => {
-            const windowHeight = window.innerHeight;
-            const contentHeight = document.getElementById(contentId).offsetHeight;
-            const keyboardVisible = windowHeight < contentHeight;
-            if (keyboardVisible) {
-                // Adjust layout for keyboard visibility
-                document.getElementById(contentId).style.bottom = "40vh";
-            } else {
-                // Reset layout when keyboard is hidden
-                document.getElementById(contentId).style.bottom = "0";
-            }
-        };
+function useKeyboardVisibility() {
+  const [keyboardHeight, setKeyboardHeight] = useState(0);
+  const [isKeyboardVisible, setIsKeyboardVisible] = useState(false);
 
-        window.addEventListener("resize", handleResize);
+  useEffect(() => {
+    const handleKeyboardShow = (e) => {
+      const height = e.detail.keyboardHeight || 300; // Default height in case the keyboard height is not provided
+      setKeyboardHeight(height);
+      setIsKeyboardVisible(true);
+    };
 
-        return () => window.removeEventListener("resize", handleResize);
-    }, [contentId]);
-};
+    const handleKeyboardHide = () => {
+      setKeyboardHeight(0);
+      setIsKeyboardVisible(false);
+    };
+
+    window.addEventListener('keyboardDidShow', handleKeyboardShow);
+    window.addEventListener('keyboardDidHide', handleKeyboardHide);
+
+    return () => {
+      window.removeEventListener('keyboardDidShow', handleKeyboardShow);
+      window.removeEventListener('keyboardDidHide', handleKeyboardHide);
+    };
+  }, []);
+
+  return { keyboardHeight, isKeyboardVisible };
+}
 
 export default useKeyboardVisibility;

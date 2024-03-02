@@ -6,10 +6,9 @@ import ImageInput from "./ImageInput";
 import useKeyboardVisibility from "../../hooks/useKeyboardVisibility";
 import { FaCheck, FaChevronLeft } from "react-icons/fa";
 
-
 const EntryForm = ({ entryId, fetchEntryById, saveEntry }) => {
 	const navigate = useNavigate();
-	const contentId = "content";
+	const { keyboardHeight, isKeyboardVisible } = useKeyboardVisibility();
 
 	const [entryData, setEntryData] = useState({
 		title: "",
@@ -22,15 +21,13 @@ const EntryForm = ({ entryId, fetchEntryById, saveEntry }) => {
 		// Add more entry data fields as needed
 	});
 
-	useKeyboardVisibility(contentId);
-
 	useEffect(() => {
 		if (entryId) {
 			fetchEntryById(entryId)
 				.then((data) => {
 					if (data) {
 						setEntryData(data);
-                        //console.log(data.image)
+						//console.log(data.image)
 					} else {
 						console.log("Entry not found or data is undefined");
 						// Handle the case where the entry is not found or data is undefined
@@ -61,7 +58,10 @@ const EntryForm = ({ entryId, fetchEntryById, saveEntry }) => {
 	};
 
 	return (
-		<div className="container text-golden font-thin mx-auto p-4 overflow-auto relative min-h-screen space-y-4">
+		<div
+			className="container text-golden font-thin mx-auto p-4 overflow-auto relative min-h-screen space-y-4"
+			style={{ marginBottom: isKeyboardVisible ? keyboardHeight : 0 }}
+		>
 			{/* Header UI */}
 			<div className="grid grid-cols-2 items-center justify-between space-x-12">
 				{/* Title Input */}
